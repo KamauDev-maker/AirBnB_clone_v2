@@ -13,7 +13,7 @@ class State(BaseModel):
     if storage_t == 'db':
         name = Column(String(128), nullable=False)
         cities = relationship('City', backref='state',
-                cascade='all, delete, delete-orphan')
+                              cascade='all, delete, delete-orphan')
     else:
         name = ''
 

@@ -8,18 +8,24 @@ from models import storage_t
 
 Base = declarative_base()
 
+
 class BaseModel:
-    """A base class for all hbnb models"""
-    id = Column(string(60),
-            nullable=False,
-            primary_key=True,
-            unique=True)
+    """A base class for all hbnb models
+    Attributes:
+        id (sqlalchemy String): The BaseModel id.
+        created_at (sqlalchemy DateTime): The datetime at creation.
+        updated_at (sqlalchemy DateTime): The datetime of last update.
+    """
+    id = Column(String(60),
+                nullable=False,
+                primary_key=True,
+                unique=True)
     created_at = Column(DATETIME,
-            nullable=False,
-            default=datetime.utcnow())
+                        nullable=False,
+                        default=datetime.utcnow())
     updated_at = Column(DATETIME,
-            nullable=False,
-            default=datetime.utcnow())
+                        nullable=False,
+                        default=datetime.utcnow())
 
     def __init__(self, *args, **kwargs):
         """Instatntiates a new model"""
@@ -59,9 +65,9 @@ class BaseModel:
         dct['__class__'] = self.__class__.__name__
         for k in dict:
             if type(dct[k]) is datetime:
-                    dct[k] = dct[k].isoformat()
+                dct[k] = dct[k].isoformat()
         if '_sa_instance_state' in dct.keys():
-            del(dct['_sa_instance_state'])
+            del (dct['_sa_instance_state'])
         return dct
 
     def delete(self):
