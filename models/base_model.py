@@ -63,7 +63,7 @@ class BaseModel:
         """Convert instance into dict format"""
         dct = self.__dict__.copy()
         dct['__class__'] = self.__class__.__name__
-        for k in dict:
+        for k in dct:
             if type(dct[k]) is datetime:
                 dct[k] = dct[k].isoformat()
         if '_sa_instance_state' in dct.keys():
