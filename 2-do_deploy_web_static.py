@@ -29,7 +29,7 @@ def do_deploy(archive_path):
         run("mkdir -p {}".format(filepath))
         run("tar -xzf /tmp/{} -C {}".format(filename, filepath))
 
-       # Delete the archive from the web server
+        # Delete the archive from the web server
         run("rm -rf /tmp/{}".format(filename))
         run("mv {}web_static/* {}".format(filepath, filepath))
         run("rm -rf {}web_static".format(filepath))
