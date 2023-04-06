@@ -20,5 +20,5 @@ def do_pack():
         local("mkdir -p versions")
         local("tar -cvzf versions/{} web_static".format(archive_name))
         return "versions/{}".format(archive_name)
-    except:
+    except BaseException:
         return None
