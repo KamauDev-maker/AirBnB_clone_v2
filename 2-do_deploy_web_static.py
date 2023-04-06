@@ -3,7 +3,7 @@
 Fabric script that distributes an archive to your web servers,
 """
 
-
+import os
 from fabric.api import run, put, env
 from os.path import exists
 
