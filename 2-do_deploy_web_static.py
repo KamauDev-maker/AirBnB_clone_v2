@@ -23,7 +23,7 @@ def do_deploy(archive_path):
     success = False
     try:
         # upload the archive to the /tmp/
-        put(archive_path, '/tmp/{}'.format(filename)
+        put(archive_path, '/tmp/{}'.format(filename))
 
         # Uncompress the archive to /data/web_static/releases/<archive
         run("mkdir -p {}".format(filepath))
