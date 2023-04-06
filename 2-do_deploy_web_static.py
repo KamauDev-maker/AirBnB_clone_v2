@@ -27,18 +27,18 @@ def do_deploy(archive_path):
 
         # Uncompress the archive to /data/web_static/releases/<archive
         run("mkdir -p {}".format(filepath))
-        run("tar -xzf /tmp/{} -C {}".format(filename, filepath))
+        run("tar -xzf /tmp/{} -C /{}/".format(filename, filepath))
 
         # Delete the archive from the web server
         run("rm -rf /tmp/{}".format(filename))
-        run("mv {}web_static/* {}".format(filepath, filepath))
+        run("mv {}web_static/* /{}/".format(filepath, filepath))
         run("rm -rf {}web_static".format(filepath))
 
         # Delete the symbolic link
         run("sudo rm -f /data/web_static/current")
 
         # Create a new the symbolic link
-        run("sudo ln -s {} /data/web_static/current".format(filepath))
+        run("sudo ln -s /{}/ /data/web_static/current".format(filepath))
         print("New version deployed!")
         success = True
     except BaseException:
