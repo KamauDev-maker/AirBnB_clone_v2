@@ -11,8 +11,8 @@ def hello_hbnb():
     """
     method that prints to the browser any returned arg
     """
-    return 'Hello HBnB!'
+    return "Hello HBnB!"
 
 
-if __name__ == '__main__':
-    app.run(host='0.0.0.0', port=5000)
+if __name__ == "__main__":
+    app.run(host="0.0.0.0")

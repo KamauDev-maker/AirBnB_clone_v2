@@ -31,14 +31,13 @@ def c(text):
 
 
 @app.route('/python/', defaults={'text': 'is cool'}, strict_slashes=False)
-"""
- this route definition uses the defaults keyword argument
- to specify a default value of "is cool"
-"""
-
-
 @app.route('/python/<text>', strict_slashes=False)
 def python(text):
+    """
+    this route definition uses the defaults keyword
+    argument to specify a default value of "is cool"
+    return 'Python {}'.format(text.replace('_', ' '))
+    """
     return 'Python {}'.format(text.replace('_', ' '))
 
 
