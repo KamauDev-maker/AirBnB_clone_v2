@@ -49,7 +49,7 @@ def number_n(n):
     """
     displays an int
     """
-    return f"{n} is a number"
+    return "{} is a number".format(n)
 
 
 if __name__ == '__main__':
